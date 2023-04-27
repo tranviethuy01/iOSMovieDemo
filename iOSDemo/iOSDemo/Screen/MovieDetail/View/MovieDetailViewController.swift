@@ -103,7 +103,7 @@ class MovieDetailViewController: ViewController {
             if let isOnMyWatchList = movie.isOnMyWatchList, isOnMyWatchList {
                 addToWatchListLbl.text = "REMOVE FROM WATCH LIST"
             } else {
-                addToWatchListLbl.text = "ADD TO WATCH LIST"
+                addToWatchListLbl.text = "+ ADD TO WATCH LIST"
             }
             
             if let genre = movie.genre {
