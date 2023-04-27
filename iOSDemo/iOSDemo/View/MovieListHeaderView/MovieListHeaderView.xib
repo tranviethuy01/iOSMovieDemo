@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SourceSansPro-Bold.otf">
+            <string>SourceSansPro-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MovieListHeaderView" customModule="iOSDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="84"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P8b-oi-E5t">
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="84"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N0d-pU-1wT">
+                            <rect key="frame" x="340" y="10" width="50" height="40"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOq-Ud-Bxn">
+                                    <rect key="frame" x="6.5" y="8" width="37.5" height="24"/>
+                                    <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="KL7-ui-7wN"/>
+                                <constraint firstItem="dOq-Ud-Bxn" firstAttribute="centerY" secondItem="N0d-pU-1wT" secondAttribute="centerY" id="YzO-WM-gNs"/>
+                                <constraint firstItem="dOq-Ud-Bxn" firstAttribute="centerX" secondItem="N0d-pU-1wT" secondAttribute="centerX" id="jzs-Fj-LBC"/>
+                                <constraint firstAttribute="height" constant="40" id="pPi-hV-WuD"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rdz-7o-rMW">
+                            <rect key="frame" x="15" y="40" width="370" height="34"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Rdz-7o-rMW" secondAttribute="bottom" constant="10" id="FUa-bb-yLf"/>
+                        <constraint firstItem="N0d-pU-1wT" firstAttribute="top" secondItem="P8b-oi-E5t" secondAttribute="top" constant="10" id="NMl-AB-Ub8"/>
+                        <constraint firstAttribute="trailing" secondItem="N0d-pU-1wT" secondAttribute="trailing" constant="10" id="Psb-sM-9bW"/>
+                        <constraint firstItem="Rdz-7o-rMW" firstAttribute="leading" secondItem="P8b-oi-E5t" secondAttribute="leading" constant="15" id="ozm-7Y-MMp"/>
+                        <constraint firstAttribute="height" priority="999" id="pQI-op-GWY"/>
+                        <constraint firstItem="Rdz-7o-rMW" firstAttribute="top" secondItem="N0d-pU-1wT" secondAttribute="top" constant="30" id="pns-ZF-PxE"/>
+                        <constraint firstAttribute="trailing" secondItem="Rdz-7o-rMW" secondAttribute="trailing" constant="15" id="uUH-iK-wzK"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="P8b-oi-E5t" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Pqe-W2-603"/>
+                <constraint firstAttribute="bottom" secondItem="P8b-oi-E5t" secondAttribute="bottom" id="cCv-rm-rv5"/>
+                <constraint firstAttribute="trailing" secondItem="P8b-oi-E5t" secondAttribute="trailing" id="j16-Ic-mui"/>
+                <constraint firstItem="P8b-oi-E5t" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="y0e-cE-HLt"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="sortWrapperView" destination="N0d-pU-1wT" id="aBq-Fh-Fej"/>
+                <outlet property="titleLbl" destination="Rdz-7o-rMW" id="Kni-VG-v7o"/>
+            </connections>
+            <point key="canvasLocation" x="121.73913043478262" y="-143.30357142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

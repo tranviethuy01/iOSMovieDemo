@@ -1,0 +1,12 @@
+.DS_Store
+iOSDemo/Podfile.lock
+iOSDemo/Pods/
+iOSDemo/build/
+iOSDemo/iOSDemo.xcodeproj/xcuserdata
+iOSDemo/iOSDemo.xcodeproj/xcshareddata
+iOSDemo/iOSDemo.xcworkspace
+iOSDemo/xcuserdata
+iOSDemo/fastlane/report.xml
+iOSDemo/iOSDemo.app.dSYM.zip
+iOSDemo/iOSDemo.ipa
+iOSDemo/fastlane/Preview.html
