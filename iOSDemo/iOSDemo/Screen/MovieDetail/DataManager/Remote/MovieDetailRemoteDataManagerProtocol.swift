@@ -10,7 +10,7 @@ import Foundation
 protocol MovieDetailRemoteDataManagerInputProtocol: AnyObject {
     var remoteRequestHandler: MovieDetailRemoteDataManagerOutputProtocol? {get set}
     func getMovie(movieId: Int)
-    func addToWatchList(movieId: Int)
+    func addToWatchList(movieId: Int, isOnMyWatchList: Bool)
 }
 
 protocol MovieDetailRemoteDataManagerOutputProtocol: AnyObject {

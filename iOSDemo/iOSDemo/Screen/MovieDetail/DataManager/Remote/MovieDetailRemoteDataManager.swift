@@ -29,10 +29,13 @@ class MovieDetailRemoteDataManager: MovieDetailRemoteDataManagerInputProtocol {
         }
     }
     
-    func addToWatchList(movieId: Int) {
+    func addToWatchList(movieId: Int, isOnMyWatchList: Bool) {
+        
+        /*
         APIServiceManager.sharedInstance.addToWatchList(movieId: movieId) {[weak self] (errorPackage, responsePackage) in
             if let responsePackage = responsePackage, let value = responsePackage.value as? [String:Any], let data = value ["data"] as? [String:Any] {
                 if let movie = Movie.init(JSON: data), let weakSelf = self, let remoteRequestHandler = weakSelf.remoteRequestHandler {
+                    movie.isOnMyWatchList = isOnMyWatchList
                     remoteRequestHandler.addToWatchListSuccess(movie: movie)
                     return
                 }
@@ -45,6 +48,7 @@ class MovieDetailRemoteDataManager: MovieDetailRemoteDataManagerInputProtocol {
                 remoteRequestHandler.addToWatchListFail()
             }
         }
+         */
     }
     
 }

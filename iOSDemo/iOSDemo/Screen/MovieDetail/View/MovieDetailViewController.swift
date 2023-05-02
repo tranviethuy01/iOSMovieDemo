@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+
 class MovieDetailViewController: ViewController {
     
     @IBOutlet weak var movieImageView: UIImageView!
@@ -48,7 +50,7 @@ class MovieDetailViewController: ViewController {
         
         watchTrailerWrapperView.layer.borderWidth = 2
         watchTrailerWrapperView.layer.borderColor = ColorSystem.black.cgColor
-        watchTrailerWrapperView.layer.cornerRadius = 20
+//        watchTrailerWrapperView.layer.cornerRadius = 20
         
         
         if let movie = movie, let image = movie.image {
@@ -67,9 +69,9 @@ class MovieDetailViewController: ViewController {
            }
         }
         
-        let backBarButtonItem = UIBarButtonItem.init(title: "Movies", style: .done, target: self, action: #selector(backBtn_TouchUpInside))
-        backBarButtonItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .normal)
-        navigationItem.leftBarButtonItem = backBarButtonItem
+//        let backBarButtonItem = UIBarButtonItem.init(title: "Movies", style: .done, target: self, action: #selector(backBtn_TouchUpInside))
+//        backBarButtonItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .normal)
+//        navigationItem.leftBarButtonItem = backBarButtonItem
         
         if let presenter = presenter {
             presenter.viewDidLoad()
@@ -131,7 +133,11 @@ class MovieDetailViewController: ViewController {
 
     
     @objc func addToWatchListWrapperView_Tap() {
-        presenter.addToWatchList()
+//        presenter.addToWatchList(isOnMyWatchList: true)
+        if let presenter = presenter, let movie = presenter.movie{
+            movie.isOnMyWatchList = true
+        }
+        updateView()
     }
     
     @objc func watchTrailerWrapperView_Tap() {

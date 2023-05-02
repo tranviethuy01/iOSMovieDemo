@@ -6,10 +6,12 @@
 //
 
 import Foundation
-enum MovieListSortType {
-    case title
-    case releaseDate
+enum MovieListSortType: String {
+    case title = "title"
+    case releaseDate = "releaseDate"
+    case none = "none"
 }
+
 
 class MovieListPresenter: MovieListPresenterProtocol {
     weak var view: MovieListViewProtocol?
@@ -18,9 +20,18 @@ class MovieListPresenter: MovieListPresenterProtocol {
     let concurrentQueue = DispatchQueue.init(label: "demo.ios.movielist")
     var reloadRequestToComplete = 0
     var movies: [Movie]?
-    var sortType : MovieListSortType = .title
+    var sortType : MovieListSortType = .none
     
     func viewDidLoad() {
+        if let sortTypeStr = UserDefaults.standard.string(forKey: "sortType") {
+            print("sortTypeStr : \(sortTypeStr)")
+            if sortTypeStr == MovieListSortType.title.rawValue {
+                sortType = .title
+            } else if sortTypeStr == MovieListSortType.releaseDate.rawValue {
+                sortType = .releaseDate
+            }
+        }
+        
         if let view = view {
             view.reloadData()
         }
@@ -42,6 +53,7 @@ class MovieListPresenter: MovieListPresenterProtocol {
                 DispatchQueue.main.async {[weak self] in
                     if let weakSelf = self, let view = weakSelf.view , weakSelf.reloadRequestToComplete <= 0{
                         view.endReloading()
+                        weakSelf.sortMoviesByType()
                         view.updateView()
                     }
                 }
@@ -57,6 +69,8 @@ class MovieListPresenter: MovieListPresenterProtocol {
     }
     
     func updateSortType(sortType: MovieListSortType) {
+        UserDefaults.standard.set(sortType.rawValue, forKey: "sortType")
+        
         self.sortType = sortType
         sortMoviesByType()
         if let view = view {
@@ -74,6 +88,8 @@ class MovieListPresenter: MovieListPresenterProtocol {
             case .releaseDate:
                 let sortedArray = movies.sorted { $0.releasedDate ?? Date() < $1.releasedDate ?? Date()}
                 self.movies = sortedArray
+                return
+            case .none:
                 return
             }
         }

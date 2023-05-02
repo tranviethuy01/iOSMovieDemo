@@ -14,5 +14,5 @@ protocol MovieDetailPresenterProtocol: AnyObject {
     var movieId: Int {get set}
     func viewDidLoad()
     func reloadData()
-    func addToWatchList()
+    func addToWatchList(isOnMyWatchList: Bool)
 }

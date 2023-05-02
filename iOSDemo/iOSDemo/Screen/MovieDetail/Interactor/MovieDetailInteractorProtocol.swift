@@ -11,7 +11,7 @@ protocol MovieDetailInteractorInputProtocol: AnyObject {
     var presenter: MovieDetailInteractorOutputProtocol? {get set}
     var remoteDataManager: MovieDetailRemoteDataManagerInputProtocol? {get set}
     func getMovie(movieId: Int)
-    func addToWatchList(movieId: Int)
+    func addToWatchList(movieId: Int, isOnMyWatchList: Bool)
 }
 protocol MovieDetailInteractorOutputProtocol: AnyObject {
     func getMovieSuccess(movie: Movie)

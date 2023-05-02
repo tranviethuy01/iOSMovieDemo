@@ -17,9 +17,9 @@ class MovieDetailInteractor: MovieDetailInteractorInputProtocol {
         
     }
     
-    func addToWatchList(movieId: Int) {
+    func addToWatchList(movieId: Int, isOnMyWatchList: Bool) {
         if let remoteDataManager = remoteDataManager {
-            remoteDataManager.addToWatchList(movieId: movieId)
+            remoteDataManager.addToWatchList(movieId: movieId, isOnMyWatchList: isOnMyWatchList)
         }
         
     }

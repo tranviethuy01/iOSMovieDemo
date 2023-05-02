@@ -47,14 +47,14 @@ class MovieDetailPresenter: NSObject, MovieDetailPresenterProtocol{
         }
     }
    
-    func addToWatchList() {
+    func addToWatchList(isOnMyWatchList: Bool) {
         currentRequestToCompleted = 1
         if let view = view {
             view.beginLoading()
         }
         
         if let interactor = interactor {
-            interactor.addToWatchList(movieId: movieId)
+            interactor.addToWatchList(movieId: movieId, isOnMyWatchList: isOnMyWatchList)
         }
     }
     
@@ -76,6 +76,8 @@ extension MovieDetailPresenter: MovieDetailInteractorOutputProtocol {
     }
     
     func addToWatchListFail() {
+        //some hard code here to test the function
+        self.movie?.isOnMyWatchList = true
         checkReloadRequestToCompleted()
     }
 }
